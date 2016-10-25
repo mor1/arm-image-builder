@@ -100,7 +100,7 @@ iface eth0 inet dhcp
 _EOF
 
 # install Xen
-sed -i -e 's,^\#\(.*/edge/main\)$,\1,g\' /etc/apk/repositories
+sed -i -e 's,^#\(.*/edge/main\)$,\1,g' /etc/apk/repositories
 apk update
 apk add xen xen-hypervisor
 
