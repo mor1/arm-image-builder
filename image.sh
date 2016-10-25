@@ -77,8 +77,8 @@ for s in dbus avahi-daemon ; do service \$s start && rc-update add \$s ; done
 chronyc makestep
 
 # enable password login over SSH
-sed -i \'s/^#PermitRootLogin prohibit-password/PermitRootLogin yes/\' /etc/ssh/sshd_config
-sed -i \'s/^#PermitEmptyPasswords no/PermitEmptyPasswords yes/\' /etc/ssh/sshd_config
+sed -i 's/^#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+sed -i 's/^#PermitEmptyPasswords no/PermitEmptyPasswords yes/' /etc/ssh/sshd_config
 service sshd restart
 
 # configure bridged networking
@@ -100,7 +100,7 @@ iface eth0 inet dhcp
 _EOF
 
 # install Xen
-sed -i -e 's,^\#\(.*/edge/main\)$,\1,g\' /etc/apk/repositories
+sed -i -e 's,^#\(.*/edge/main\)$,\1,g' /etc/apk/repositories
 apk update
 apk add xen xen-hypervisor
 
